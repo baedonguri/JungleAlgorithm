@@ -10,6 +10,7 @@ n_num = [i for i in range(4)]
 
 perm = list(permutations(n_num))
 
+print(perm)
 min_cost = 999999999
 for p in perm:
     cost = []
