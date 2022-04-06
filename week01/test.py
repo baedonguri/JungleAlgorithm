@@ -21,16 +21,18 @@ def recursive(n,r,c):
         
     if n > 1:
         if loc == 2:
-            cnt += half**2 
-            recursive(n-1, r,c-half) # 2사분면인 경우 열값만 2^(n-1)만큼 감소, 즉 half만큼
+            cnt += half**2
+            c -= half
         elif loc == 3:
             cnt += (half**2)*2
-            recursive(n-1, r-half,c) # 3사분면인 경우 행값만 2^(n-1)만큼 감소
+            r -= half
         elif loc == 4:
             cnt += (half**2)*3
-            recursive(n-1, r-half,c-half) # 4사분면인 경우 행,열 모두 2^(n-1)만큼 감소
+            r -= half
+            c -= half
         else:
-            recursive(n-1,r,c)
+            pass
+        recursive(n-1,r,c)
     else:
         if r == 0 and c == 1:
             cnt += 1

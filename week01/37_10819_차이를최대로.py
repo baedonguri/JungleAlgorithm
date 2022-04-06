@@ -1,17 +1,16 @@
+import sys
 from itertools import permutations
+input = sys.stdin.readline
 
-num = int(input())
+n = int(input())
 arr = list(map(int, input().split()))
-arr.sort()
 
-arr = [i for i in permutations(arr)]
+max_sum = 0
+for p in permutations(arr):
+    tmp_sum = 0
+    for i in range(n-1):
+        tmp_sum += abs(p[i]-p[i-1])
+    if tmp_sum > max_sum:
+        max_sum = tmp_sum
 
-max_hap = 0
-for lst in arr:
-    hap = 0
-    for i in range(0,num-1):
-        hap += (abs(lst[i] - lst[i+1]))
-    if hap > max_hap:
-        max_hap = hap
-        
-print(max_hap)
+print(max_sum)

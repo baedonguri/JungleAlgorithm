@@ -28,6 +28,5 @@ while n > 0:
             num += 3
         
     n -= 1
-    
 print(num)
         
