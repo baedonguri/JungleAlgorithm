@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-
+# -*- coding: utf
 import sys
 input = sys.stdin.readline
 
@@ -23,7 +21,7 @@ def solve(N, paper):
     else: # 위의 경우가 아니라면 색종이의 크기가 1이 될 때까지 4등분 분할 후 재귀
         temp = [paper[i][0:N//2] for i in range(0,N//2)] # 1사분면
         solve(N//2, temp) 
-        temp = [paper[i][N//2:N] for i in range(0,N//2)] # 2사분면
+        temp = [paper[i][N//2:] for i in range(0,N//2)] # 2사분면
         solve(N//2, temp)
         temp = [paper[i][0:N//2] for i in range(N//2,N)] # 3사분면
         solve(N//2, temp)
