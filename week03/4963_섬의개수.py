@@ -18,11 +18,13 @@ def dfs(x,y):
     for i in range(8):
         nx = x + dx[i]
         ny = y + dy[i]
-        if 0 <= nx < w and 0 <= ny < h and arr[nx][ny] == 1:
+        if 0 <= nx < h and 0 <= ny < w and arr[nx][ny] == 1:
             dfs(nx, ny)
 
 while True:
     w,h = map(int,input().split())
+    if w == 0 and h == 0:
+        break
     arr = [list(map(int,input().rstrip().split())) for _ in range(h)]
     cnt = 0
     for i in range(h):
