@@ -7,7 +7,7 @@ def dfs(n, u):
     for i in edges[n]:
         if not check[i]: # 만약 방문하지 않았다면
             a = dfs(i, -u)  # 그룹값을 -1로 주고 dfs 수행
-            if not a: # 만약 a가 False면 False 리턴
+            if not a: #  하나라도 False라면 이분그래프가 아니므로 바로 False 때리기
                 return False
         elif check[i] == check[n]: # 만약 현재 정점과 연결된 정점의 그룹값이 같다면 False 리턴
             return False
