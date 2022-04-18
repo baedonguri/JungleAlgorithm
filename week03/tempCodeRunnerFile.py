@@ -1,1 +1,2 @@
-[cave[1]] else check[cave[0]][cave[1]])
+
+            cnt = 0
