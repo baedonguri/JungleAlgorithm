@@ -1,57 +1,39 @@
-from collections import deque
 import sys
+from heapq import heappop, heappush
 input = sys.stdin.readline
 
-r, c = map(int, input().rstrip().split())
+n = int(input())
+answer = [0]*(n+1)
+degree = [0]*(n+1)
+graph = [[] for _ in range(n+1)]
 
-forest = [list(map(str, input().rstrip())) for _ in range(r)]
+for i in range(1, n+1):
+    tmp = [0] + list(map(int, input().rstrip()))
+    for j in range(1,n+1):
+        if tmp[j] == 1:
+            graph[j].append(i)
+            degree[i] += 1
 
-check = [[0]*c for i in range(r)]
 
+def topology_sort():
+    que = []
+    for i in range(1, n+1):
+        if degree[i] == 0:
+            heappush(que, -i)
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
-
-que = deque([])
-cave = []
-
-for i in range(r):
-    for j in range(c):
-        if forest[i][j] == '*':
-            que.append([i,j])
-        elif forest[i][j] == 'S':
-            que.appendleft([i,j])
-        elif forest[i][j] == 'D':
-            cave = [i,j]
-
-flag = False
-while que:
-    if flag: break
-
-    x,y = que.popleft()
-    
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-
-        if not (0 <= nx < r and 0 <= ny < c):
-            continue
+    N = n
+    while que:
+        now = -heappop(que)
+        answer[now] = N
+        
+        for i in graph[now]:
+            degree[i] -= 1
             
-        if forest[x][y] == '*':
-            if forest[nx][ny] == '.' or forest[nx][ny] == 'S':
-                forest[nx][ny] = '*'
-                que.append([nx,ny])
+            if degree[i] == 0:
+                heappush(que, -i)
+        N -= 1
 
-        elif forest[x][y] == 'S':
-            if forest[nx][ny] == '.':
-                forest[nx][ny] = 'S'
-                check[nx][ny] = check[x][y] + 1
-                que.append([nx,ny])
 
-            elif forest[nx][ny] == 'D':
-                check[nx][ny] = check[x][y] + 1
-                flag = True
-                break
-            
+topology_sort()
 
-print('KAKTUS' if not check[cave[0]][cave[1]] else check[cave[0]][cave[1]])
+print(*answer[1:] if answer.count(0)<=1 else -1)

@@ -1,2 +1,2 @@
 
-            cnt = 0
+    print(i)
