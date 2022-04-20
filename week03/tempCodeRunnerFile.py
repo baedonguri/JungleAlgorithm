@@ -1,2 +1,2 @@
 
-    print(i)
+n, k = map(int, input().split())
