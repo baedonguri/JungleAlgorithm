@@ -1,2 +1,1 @@
-
-n, k = map(int, input().split())
+][Y-1]
