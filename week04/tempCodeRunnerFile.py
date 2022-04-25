@@ -1,1 +1,1 @@
-nt(dp[:20])
+ommend[0], commend[1])
