@@ -1,25 +1,26 @@
-import re
+from itertools import combinations
+from collections import defaultdict
+import bisect
+def solution(infos, query):
+    query = [i.replace('and','').split() for i in query]
+    infos = [i.split() for i in infos]
 
-info = ["java backend junior pizza 150",
-"python frontend senior chicken 210",
-"python frontend senior chicken 150",
-"cpp backend senior pizza 260",
-"java backend junior chicken 80",
-"python backend senior chicken 50"]
+    info_dict = defaultdict(list)
 
-query = ["java and backend and junior and pizza 100",
-"python and frontend and senior and chicken 200",
-"cpp and - and senior and pizza 250",
-"- and backend and senior and - 150",
-"- and - and - and chicken 100",
-"- and - and - and - 150"]
+    for info in infos:
+        for i in range(5):
+            for j in combinations(info[:-1],i):
+                info_dict[''.join(j)].append(int(info[-1])) 
 
-info_data = []
-query_data = []
-for i in info:
-    info_data.append(i.split(" "))
+    for i in info_dict:
+        info_dict[i].sort()
 
-for i in info_data:
-    print(i)
+    answer = []
 
+    for i in query:
+        score = int(i[-1])
+        result = ''.join(i[:-1]).replace('-','')
+        ans = info_dict[result]
+        answer.append(len(ans)-bisect.bisect_left(ans,score))
 
+    return answer

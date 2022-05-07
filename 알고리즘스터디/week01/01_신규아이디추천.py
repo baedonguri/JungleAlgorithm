@@ -22,7 +22,7 @@ def solution(new_id):
     if answer[-1] == '.': answer = answer[:-1]
 
     #5
-    if answer == '': answer = 'a'
+    if not answer: answer = 'a'
 
     #6
     if len(answer) >= 16:
