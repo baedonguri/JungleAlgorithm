@@ -1,14 +1,6 @@
-def solution(skill, skill_trees):
-#     answer = 0
+for i in r_dic:
+#     print(i, r_dic[i])
 
-#     for skills in skill_trees:
-#         skill = list(skill)
 
-#         for s in skills:
-#             if s in skill:
-#                 if s != skill.pop(0):
-#                     break
-#         else:
-#             answer += 1
-
-#     return answer
+# for i in u_dic:
+#     print(i, u_dic[i], len(u_dic[i]))
