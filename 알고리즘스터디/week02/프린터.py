@@ -1,3 +1,6 @@
+# [프로그래머스] 프린터 (python)
+# https://programmers.co.kr/learn/courses/30/lessons/42587
+
 from collections import deque
 
 def solution(priorities,location):
@@ -13,7 +16,5 @@ def solution(priorities,location):
             if v[0] == location:
                 break
     return answer
-
-    
 
 print(solution([2, 1, 3, 2],2))
