@@ -19,8 +19,7 @@ def solution(files):
         datas.append((head,number,tail))
 
     tmp = sorted(datas, key=lambda x :(x[0].lower(),int(x[1])))
-
-    return [f"{i[0]}{i[1]}{i[2]}" for i in tmp]
+    return [''.join(i) for i in tmp]
 
 
 
