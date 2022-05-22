@@ -25,6 +25,7 @@ def solution(routes):
     f_out = routes[0][1]
 
     for route in routes[1:]:
+        print(route)
         s_in, s_out = route        
         if not (s_out >= f_out >= s_in):
             cnt += 1
