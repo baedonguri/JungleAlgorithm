@@ -3,12 +3,10 @@
 
 def solution(n):
     MAX_NUM = 1000000
-    n_bin = bin(n)[2:]
-    one_cnt = n_bin.count('1')
+    one_cnt = bin(n).count('1')
 
     for i in range(n+1, MAX_NUM):
-        target = bin(i)[2:]
-        if one_cnt == target.count('1'):
+        if one_cnt == bin(i).count('1'):
             return i
 
 print(solution(78))
