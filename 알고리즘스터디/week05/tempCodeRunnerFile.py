@@ -1,1 +1,1 @@
-tion(numbers))
+g(s)
