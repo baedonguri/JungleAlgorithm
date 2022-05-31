@@ -1,1 +1,1 @@
-g(s)
+        # answer += delay
