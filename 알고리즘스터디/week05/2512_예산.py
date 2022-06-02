@@ -1,3 +1,5 @@
+# 백준 2512 예산
+# 이분 탐색
 import sys
 input = sys.stdin.readline
 
