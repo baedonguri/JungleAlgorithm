@@ -13,6 +13,4 @@ def solution(n):
             elif tmp > n:
                 break
     return cnt
-
-
 print(solution(n))
