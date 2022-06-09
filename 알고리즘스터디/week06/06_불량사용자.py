@@ -26,7 +26,7 @@ def solution(user_id, banned_id):
         if len(answer) == len(banned_id):
             answer.sort()
             if answer not in dap:
-                dap.append(answer)        
+                dap.append(answer)
     return len(dap)
 
 user_id = ["frodo", "fradi", "crodo", "abc123", "frodoc"]
