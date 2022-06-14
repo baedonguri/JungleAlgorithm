@@ -13,7 +13,6 @@ def check_time(start,end):
 def solution(m, musicinfos):
     m = m.replace('C#','H').replace('D#','I').replace('F#','J').replace('G#','K').replace('A#','L')
     result = []
-    answer = ""
     for musicinfo in musicinfos:
         start, end, title, note = musicinfo.split(',')
         running_time = check_time(start,end)
