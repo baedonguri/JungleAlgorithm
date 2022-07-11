@@ -9,10 +9,10 @@ def check(s):
             stack.pop()
         else:
             stack.append(i)
-    return (1 if stack else 0)
+    return (0 if stack else 1)
 
 def solution(s):
     answer = check(s)
     return answer
-        
+
 print(solution(s))
