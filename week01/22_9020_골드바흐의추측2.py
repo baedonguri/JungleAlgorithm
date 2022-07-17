@@ -16,5 +16,3 @@ for i in range(int(input())):
     # 제일 마지막에 들어온 수가 차이가 제일 적기 때문에 리스트의 마지막을 출력
     prime = [[x, n-x] for x,y in enumerate(arr[:n//2+1]) if y and arr[n-x]][-1]
     print(*prime)
-
-from itertools import com
